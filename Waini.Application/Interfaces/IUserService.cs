@@ -9,9 +9,10 @@ namespace Waini.Application.Interfaces
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAllUsers();
-        void AddUser(User user);
-        void UpdateUser(User user);
-        void DeleteUser(int id);
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
+        Task<User> AddUserAsync(User user);
+        Task UpdateUserAsync(User user);
+        Task DeleteUserAsync(int id);
     }
 }

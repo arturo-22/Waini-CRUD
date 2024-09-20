@@ -9,9 +9,10 @@ namespace Waini.Application.Interfaces
 {
     public interface IUserRepository
     {
-        IEnumerable<User> GetAll();
-        void Add(User user);
-        void Update(User user);
-        void Delete(int id);
+        Task<IEnumerable<User>> GetUsersAsync();
+        Task<User> GetUserByIdAsync(int id);
+        Task<User> AddUserAsync(User user);
+        Task UpdateUserAsync(User user);
+        Task DeleteUserAsync(int id);
     }
 }

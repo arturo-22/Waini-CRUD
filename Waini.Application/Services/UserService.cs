@@ -17,24 +17,29 @@ namespace Waini.Application.Services
             _userRepository = userRepository;
         }
 
-        public IEnumerable<User> GetAllUsers()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return _userRepository.GetAll();
+            return await _userRepository.GetUsersAsync();
         }
 
-        public void AddUser(User user)
+        public async Task<User> GetUserByIdAsync(int id)
         {
-            _userRepository.Add(user);
+            return await _userRepository.GetUserByIdAsync(id);
         }
 
-        public void UpdateUser(User user)
+        public async Task<User> AddUserAsync(User user)
         {
-            _userRepository.Update(user);
+            return await _userRepository.AddUserAsync(user);
         }
 
-        public void DeleteUser(int id)
+        public async Task UpdateUserAsync(User user)
         {
-            _userRepository.Delete(id);
+            await _userRepository.UpdateUserAsync(user);
+        }
+
+        public async Task DeleteUserAsync(int id)
+        {
+            await _userRepository.DeleteUserAsync(id);
         }
     }
 }
